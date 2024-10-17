@@ -28,12 +28,10 @@
  * 4. Turn on a single LED: Verify that the state of the LED is reported as on. (Requirement 7)
  * 5. Turn on all LEDs that are currently off. (Requirement 5)
  * 6. Turn off all LEDs that are currently on. (Requirement 6)
- * 7. Turn on LEDs that are already on. (Requirement 2)
- * 8. Turn off LEDs that are already off. (Requirement 3)
- * 9. Check for forbidden values. (Requirement 9)
- * 10. Check for limit values. (Requirement 10)
- * 11. Turn on multiple LEDs: Verify that multiple LEDs can be turned on simultaneously. (Requirement 4)
- * 12. Turn off multiple LEDs: Verify that multiple LEDs can be turned off simultaneously. (Requirement 4)
+ * 7. Check for forbidden values. (Requirement 9)
+ * 8. Check for limit values. (Requirement 10)
+ * 9. Turn on multiple LEDs: Verify that multiple LEDs can be turned on simultaneously. (Requirement 4)
+ * 10. Turn off multiple LEDs: Verify that multiple LEDs can be turned off simultaneously. (Requirement 4)
  */
 static uint16_t leds_virtuales;
 
@@ -112,7 +110,6 @@ void test_apagar_todos_los_leds_encendidos(void)
     TEST_ASSERT_EQUAL_HEX16(0x00, leds_virtuales);
 }
 
- 
 /**
  * @brief Test function to verify the functionality of turning on multiple LEDs.
  *
@@ -123,7 +120,7 @@ void test_apagar_todos_los_leds_encendidos(void)
  * @note This function uses the `leds_turn_on` function to turn on the LEDs
  * and `TEST_ASSERT_EQUAL_HEX16` to assert the expected state.
  */
- void test_encender_multiples_leds(void)
+void test_encender_multiples_leds(void)
 {
     static const int LED7 = 7;
     static const int LED13 = 13;
@@ -134,7 +131,6 @@ void test_apagar_todos_los_leds_encendidos(void)
     uint16_t expected_state = (1 << (LED7 - 1)) | (1 << (LED13 - 1)) | (1 << (LED15 - 1));
     TEST_ASSERT_EQUAL_HEX16(expected_state, leds_virtuales);
 }
- 
 
 /**
  * @brief Test function to verify the functionality of turning off multiple LEDs.
@@ -159,4 +155,3 @@ void test_apagar_multiples_leds(void)
     leds_turn_off(LED12);
     TEST_ASSERT_EQUAL_HEX16(0x00, leds_virtuales);
 }
-

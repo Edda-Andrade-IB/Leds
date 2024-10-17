@@ -1,7 +1,6 @@
 #include "leds.h"
 
-static uint16_t * leds_puerto;
-
+static uint16_t *leds_puerto;
 
 /**
  * @brief Computes the bitmask for a given LED index.
@@ -74,7 +73,6 @@ void leds_turn_all_on(void)
 {
     *leds_puerto = 0xFFFF;
 }
-
 
 void leds_turn_all_off(void)
 {
