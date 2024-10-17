@@ -96,14 +96,29 @@ void test_verificar_estado_de_led_encendido(void)
     TEST_ASSERT_EQUAL(1, leds_state(LED));
 }
 
-//* 5. Turn on all LEDs that are currently off.
+
+/**
+ * @brief Test to verify that all LEDs are turned on when the function leds_turn_all_on() is called.
+ *
+ * This test ensures that the function leds_turn_all_on() correctly sets all bits in the 
+ * leds_virtuales variable to 1, indicating that all LEDs are turned on.
+ *
+ * @note The expected value of leds_virtuales after calling leds_turn_all_on() is 0xFFFF.
+ */
 void test_encender_todos_los_leds_apagados(void)
 {
     leds_turn_all_on();
     TEST_ASSERT_EQUAL_HEX16(0XFFFF, leds_virtuales);
 }
 
-//* 6. Turn off all LEDs that are currently on.
+
+/**
+ * @brief Test function to verify that all LEDs are turned off.
+ *
+ * This function calls the `leds_turn_all_off` function to turn off all LEDs
+ * and then asserts that the `leds_virtuales` variable is equal to 0x00,
+ * indicating that all LEDs are indeed turned off.
+ */
 void test_apagar_todos_los_leds_encendidos(void)
 {
     leds_turn_all_off();

@@ -74,6 +74,11 @@ void leds_turn_all_on(void)
     *leds_puerto = 0xFFFF;
 }
 
+/**
+ * @brief Turns off all LEDs.
+ *
+ * This function sets the value of the LED port to 0, effectively turning off all the LEDs connected to the port.
+ */
 void leds_turn_all_off(void)
 {
     *leds_puerto = 0;
