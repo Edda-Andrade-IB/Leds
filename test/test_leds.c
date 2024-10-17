@@ -136,4 +136,27 @@ void test_apagar_todos_los_leds_encendidos(void)
 }
  
 
+/**
+ * @brief Test function to verify the functionality of turning off multiple LEDs.
+ *
+ * This function tests the ability to turn off multiple LEDs after they have been turned on.
+ * It turns on LEDs 1, 5, and 12, then turns them off, and finally asserts that the virtual
+ * LEDs register is 0x00, indicating that all LEDs are off.
+ *
+ * @note This function uses the `leds_turn_on` and `leds_turn_off` functions to control the LEDs.
+ *       It also uses the `TEST_ASSERT_EQUAL_HEX16` macro to verify the final state of the LEDs.
+ */
+void test_apagar_multiples_leds(void)
+{
+    static const int LED1 = 1;
+    static const int LED5 = 5;
+    static const int LED12 = 12;
+    leds_turn_on(LED1);
+    leds_turn_on(LED5);
+    leds_turn_on(LED12);
+    leds_turn_off(LED1);
+    leds_turn_off(LED5);
+    leds_turn_off(LED12);
+    TEST_ASSERT_EQUAL_HEX16(0x00, leds_virtuales);
+}
 

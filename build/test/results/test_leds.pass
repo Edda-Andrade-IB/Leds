@@ -31,12 +31,16 @@
   :line: 126
   :message: ''
   :unity_test_time: 0
+- :test: test_apagar_multiples_leds
+  :line: 149
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 7
-  :passed: 7
+  :total: 8
+  :passed: 8
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0006620449985348387
+:time: 0.000673028000164777

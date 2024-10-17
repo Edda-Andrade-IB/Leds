@@ -173,3 +173,33 @@ void test_apagar_todos_los_leds_encendidos(void)
    ), (UNITY_UINT)(135), UNITY_DISPLAY_STYLE_HEX16);
 
 }
+
+void test_apagar_multiples_leds(void)
+
+{
+
+    static const int LED1 = 1;
+
+    static const int LED5 = 5;
+
+    static const int LED12 = 12;
+
+    leds_turn_on(LED1);
+
+    leds_turn_on(LED5);
+
+    leds_turn_on(LED12);
+
+    leds_turn_off(LED1);
+
+    leds_turn_off(LED5);
+
+    leds_turn_off(LED12);
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x00)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(160), UNITY_DISPLAY_STYLE_HEX16);
+
+}
