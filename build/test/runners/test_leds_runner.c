@@ -13,6 +13,7 @@ extern void tearDown(void);
 extern void test_todos_los_leds_inician_apagados(void);
 extern void test_encender_un_led(void);
 extern void test_apagar_un_led_previamente_encendido(void);
+extern void test_verificar_estado_de_led_encendido(void);
 
 
 /*=======Mock Management=====*/
@@ -80,9 +81,10 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_leds.c");
-  run_test(test_todos_los_leds_inician_apagados, "test_todos_los_leds_inician_apagados", 26);
-  run_test(test_encender_un_led, "test_encender_un_led", 51);
-  run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 66);
+  run_test(test_todos_los_leds_inician_apagados, "test_todos_los_leds_inician_apagados", 38);
+  run_test(test_encender_un_led, "test_encender_un_led", 53);
+  run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 67);
+  run_test(test_verificar_estado_de_led_encendido, "test_verificar_estado_de_led_encendido", 82);
 
   return UnityEnd();
 }

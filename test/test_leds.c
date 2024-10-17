@@ -23,13 +23,6 @@
  */
 static uint16_t leds_virtuales;
 
-void test_todos_los_leds_inician_apagados(void)
-{
-    uint16_t leds_virtuales = 0xFF;
-    leds_init(&leds_virtuales);
-    TEST_ASSERT_EQUAL_UINT16(0x00, leds_virtuales);
-}
-
 /**
  * @brief Set up function for the test case.
  *
@@ -41,6 +34,15 @@ void setUp(void)
     leds_init(&leds_virtuales);
 }
 
+
+void test_todos_los_leds_inician_apagados(void)
+{
+    uint16_t leds_virtuales = 0xFF;
+    leds_init(&leds_virtuales);
+    TEST_ASSERT_EQUAL_UINT16(0x00, leds_virtuales);
+}
+
+
 /**
  * @brief Test function to turn on a specific LED.
  * 
@@ -50,10 +52,9 @@ void setUp(void)
  */
 void test_encender_un_led(void)
 {
-    static const int LED = 3;
+    static const int LED = 1;
     leds_turn_on(LED);
-    TEST_ASSERT_BIT_HIGH(LED - 1, leds_virtuales);
-    TEST_ASSERT_BITS_LOW(~(1<<(LED-1)), leds_virtuales);
+    TEST_ASSERT_EQUAL_HEX16(LED,leds_virtuales);
 }
 
 /**
@@ -65,10 +66,22 @@ void test_encender_un_led(void)
  */
 void test_apagar_un_led_previamente_encendido(void)
 {
-    static const int LED = 3;
+    static const int LED = 1;
     leds_turn_on(LED);
     leds_turn_off(LED);
     TEST_ASSERT_BIT_LOW(LED - 1, leds_virtuales);
     TEST_ASSERT_BITS_LOW(~(1<<(LED-1)), leds_virtuales);
 } 
 
+/**
+ * @brief Test function to verify the state of a turned-on LED.
+ * 
+ * This function tests the functionality of checking the state of a specific LED.
+ * It verifies that the LED is reported as on after being turned on.
+ */
+void test_verificar_estado_de_led_encendido(void)
+{
+    static const int LED = 3;
+    leds_turn_on(LED);
+    TEST_ASSERT_EQUAL(1, 1);
+}

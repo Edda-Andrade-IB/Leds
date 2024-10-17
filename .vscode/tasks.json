@@ -1,0 +1,56 @@
+
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "build",
+        "type": "shell",
+        "command": "make",
+        "group": {
+          "kind": "build",
+          "isDefault": true
+        },
+        "problemMatcher": ["$gcc"]
+      },
+      {
+        "label": "clean",
+        "type": "shell",
+        "command": "make clean"
+      },
+      {
+        "label": "test",
+        "type": "shell",
+        "command": "make test"
+      }
+    ]
+  }
+
+  /*{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: gcc compilar archivo activo",
+            "command": "make",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}",
+                "-I/home/edda/Documentos/CESE/TSSE/Leds/lib/Unity/src",
+                "-I/home/edda/Documentos/CESE/TSSE/Leds/src",
+                "-I/home/edda/Documentos/CESE/TSSE/Leds/**"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Tarea generada por el depurador."
+        }
+    ],
+    "version": "2.0.0"
+}
+  */

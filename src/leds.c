@@ -2,6 +2,9 @@
 
 static uint16_t * leds_puerto;
 
+
+static int led_it_bit(int led_index) { return 1 << (led_index - 1); }
+
 /**
  * @brief Initializes the LED module.
  *
@@ -25,10 +28,30 @@ void leds_init(uint16_t *puerto)
  */
 void leds_turn_on(int led)
 {
-    *leds_puerto = 4;
+    
+    *leds_puerto |= led_it_bit(led);
 }
 
+/**
+ * @brief Turns off the specified LED.
+ *
+ * This function sets the state of the specified LED to off.
+ *
+ * @param led The identifier of the LED to turn off.
+ */
 void leds_turn_off(int led)
 {
     *leds_puerto = 0;
+}
+
+/**
+ * @brief returns the state of a specified LED.
+ *
+ * This function returns the state of the specified LED
+ *
+ * @param led The identifier of the LED to verify the state
+ */
+int leds_state(int led)
+{
+    return ((*leds_puerto & (1 << led)) != 0);
 }
