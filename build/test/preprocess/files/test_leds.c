@@ -26,8 +26,6 @@ void setUp(void)
 
 
 
-
-
 void test_todos_los_leds_inician_apagados(void)
 
 {
@@ -40,7 +38,7 @@ void test_todos_los_leds_inician_apagados(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(42), UNITY_DISPLAY_STYLE_UINT16);
+   ), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_UINT16);
 
 }
 
@@ -56,7 +54,7 @@ void test_encender_un_led(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(57), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -74,13 +72,13 @@ void test_apagar_un_led_previamente_encendido(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(72));
+   ), (UNITY_UINT)(84));
 
-    UnityAssertBits((UNITY_INT)((~(1<<(LED-1)))), (UNITY_INT)((UNITY_UINT)(0)), (UNITY_INT)((leds_virtuales)), (
+    UnityAssertBits((UNITY_INT)((~(1 << (LED - 1)))), (UNITY_INT)((UNITY_UINT)(0)), (UNITY_INT)((leds_virtuales)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(73));
+   ), (UNITY_UINT)(85));
 
 }
 
@@ -110,7 +108,7 @@ void test_verificar_estado_de_led_encendido(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(98), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -128,7 +126,7 @@ void test_encender_todos_los_leds_apagados(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(105), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -146,6 +144,32 @@ void test_apagar_todos_los_leds_encendidos(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(100), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(112), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+ void test_encender_multiples_leds(void)
+
+{
+
+    static const int LED7 = 7;
+
+    static const int LED13 = 13;
+
+    static const int LED15 = 15;
+
+    leds_turn_on(LED7);
+
+    leds_turn_on(LED13);
+
+    leds_turn_on(LED15);
+
+    uint16_t expected_state = (1 << (LED7 - 1)) | (1 << (LED13 - 1)) | (1 << (LED15 - 1));
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((expected_state)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(135), UNITY_DISPLAY_STYLE_HEX16);
 
 }
