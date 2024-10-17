@@ -83,5 +83,13 @@ void test_verificar_estado_de_led_encendido(void)
 {
     static const int LED = 3;
     leds_turn_on(LED);
-    TEST_ASSERT_EQUAL(1, 1);
+    TEST_ASSERT_EQUAL(1, leds_state(LED));
+}
+
+//* 5. Turn on all LEDs that are currently off.
+void test_encender_todos_los_leds_apagados(void)
+{
+    leds_virtuales = 0xAA;
+    leds_turn_all_on();
+    TEST_ASSERT_EQUAL_HEX16(0XFFFF, leds_virtuales);
 }

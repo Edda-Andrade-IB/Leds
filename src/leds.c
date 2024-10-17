@@ -3,6 +3,15 @@
 static uint16_t * leds_puerto;
 
 
+/**
+ * @brief Computes the bitmask for a given LED index.
+ *
+ * This function takes an LED index and returns the corresponding bitmask
+ * by shifting 1 to the left by (led_index - 1) positions.
+ *
+ * @param led_index The index of the LED (1-based index).
+ * @return The bitmask corresponding to the given LED index.
+ */
 static int led_it_bit(int led_index) { return 1 << (led_index - 1); }
 
 /**
@@ -28,7 +37,6 @@ void leds_init(uint16_t *puerto)
  */
 void leds_turn_on(int led)
 {
-    
     *leds_puerto |= led_it_bit(led);
 }
 
@@ -52,6 +60,17 @@ void leds_turn_off(int led)
  * @param led The identifier of the LED to verify the state
  */
 int leds_state(int led)
+
 {
-    return ((*leds_puerto & (1 << led)) != 0);
+    return (*leds_puerto & led_it_bit(led)) != 0;
+}
+
+/**
+ * @brief Turns all LEDs on.
+ *
+ * This function sets all bits of the LED port to 1, effectively turning on all LEDs connected to the port.
+ */
+void leds_turn_all_on(void)
+{
+    *leds_puerto = 0xFFFF;
 }

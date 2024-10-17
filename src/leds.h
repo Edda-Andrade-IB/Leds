@@ -7,3 +7,5 @@ void leds_turn_on(int led);
 void leds_turn_off(int led);
 
 int leds_state(int led);
+
+void leds_turn_all_on(void);

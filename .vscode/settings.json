@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "leds.h": "c",
-        "unity.h": "c"
+        "unity.h": "c",
+        "stdint.h": "c"
     },
     "makefile.makefilePath": "/home/edda/Documentos/CESE/TSSE/Leds",
     "makefile.configureOnOpen": true

@@ -64,7 +64,7 @@ void test_apagar_un_led_previamente_encendido(void)
 
 {
 
-    static const int LED = 3;
+    static const int LED = 1;
 
     leds_turn_on(LED);
 
@@ -104,12 +104,32 @@ void test_verificar_estado_de_led_encendido(void)
 
     static const int LED = 3;
 
-    leds_turn_on(3);
+    leds_turn_on(LED);
 
-    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((1)), (
+    UnityAssertEqualNumber((UNITY_INT)((1)), (UNITY_INT)((leds_state(LED))), (
 
    ((void *)0)
 
    ), (UNITY_UINT)(86), UNITY_DISPLAY_STYLE_INT);
+
+}
+
+
+
+
+
+void test_encender_todos_los_leds_apagados(void)
+
+{
+
+    leds_virtuales = 0xAA;
+
+    leds_turn_all_on();
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0XFFFF)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(94), UNITY_DISPLAY_STYLE_HEX16);
 
 }
