@@ -74,3 +74,9 @@ void leds_turn_all_on(void)
 {
     *leds_puerto = 0xFFFF;
 }
+
+
+void leds_turn_all_off(void)
+{
+    *leds_puerto = 0;
+}

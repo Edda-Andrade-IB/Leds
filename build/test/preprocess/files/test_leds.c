@@ -122,14 +122,30 @@ void test_encender_todos_los_leds_apagados(void)
 
 {
 
-    leds_virtuales = 0xAA;
-
     leds_turn_all_on();
 
     UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0XFFFF)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(94), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(93), UNITY_DISPLAY_STYLE_HEX16);
+
+}
+
+
+
+
+
+void test_apagar_todos_los_leds_encendidos(void)
+
+{
+
+    leds_turn_all_off();
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x00)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(100), UNITY_DISPLAY_STYLE_HEX16);
 
 }

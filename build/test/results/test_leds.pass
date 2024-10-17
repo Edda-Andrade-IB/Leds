@@ -23,12 +23,16 @@
   :line: 90
   :message: ''
   :unity_test_time: 0
+- :test: test_apagar_todos_los_leds_encendidos
+  :line: 97
+  :message: ''
+  :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 5
-  :passed: 5
+  :total: 6
+  :passed: 6
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0006397269999069977
+:time: 0.0007091610004863469

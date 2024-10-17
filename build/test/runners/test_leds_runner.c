@@ -15,6 +15,7 @@ extern void test_encender_un_led(void);
 extern void test_apagar_un_led_previamente_encendido(void);
 extern void test_verificar_estado_de_led_encendido(void);
 extern void test_encender_todos_los_leds_apagados(void);
+extern void test_apagar_todos_los_leds_encendidos(void);
 
 
 /*=======Mock Management=====*/
@@ -87,6 +88,7 @@ int main(void)
   run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 67);
   run_test(test_verificar_estado_de_led_encendido, "test_verificar_estado_de_led_encendido", 82);
   run_test(test_encender_todos_los_leds_apagados, "test_encender_todos_los_leds_apagados", 90);
+  run_test(test_apagar_todos_los_leds_encendidos, "test_apagar_todos_los_leds_encendidos", 97);
 
   return UnityEnd();
 }

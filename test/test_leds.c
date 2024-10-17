@@ -89,7 +89,13 @@ void test_verificar_estado_de_led_encendido(void)
 //* 5. Turn on all LEDs that are currently off.
 void test_encender_todos_los_leds_apagados(void)
 {
-    leds_virtuales = 0xAA;
     leds_turn_all_on();
     TEST_ASSERT_EQUAL_HEX16(0XFFFF, leds_virtuales);
 }
+
+//* 6. Turn off all LEDs that are currently on.
+void test_apagar_todos_los_leds_encendidos(void)
+{
+    leds_turn_all_off();
+    TEST_ASSERT_EQUAL_HEX16(0x00, leds_virtuales);
+} 
