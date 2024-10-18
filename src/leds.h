@@ -1,5 +1,10 @@
 #include <stdint.h>
 
+/*
+* @brief Initializes the LED module.
+* by EddaAndrade
+*/
+
 void leds_init(uint16_t *puerto);
 
 int leds_turn_on(int led);
