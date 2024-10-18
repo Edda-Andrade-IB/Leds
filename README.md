@@ -15,35 +15,44 @@ El driver debe cumplir con los siguientes requerimientos:
 </ul>
 
 
-Uso del repositorio
+## Uso del Repositorio
 
 Este repositorio utiliza las siguientes herramientas:
 
-    [clang-format] () para el mantenimiento del formato del código escrito en lenguaje C
-    pre-commit para validaciones generales de formato del repositorio
-    ceedling para ejecutar las pruebas unitarias en forma automatizada
-    lcov para generar los informes de cobertura de las pruebas unitarias
+- [clang-format]() para el mantenimiento del formato del código escrito en lenguaje C.
+- [pre-commit](https://pre-commit.com/) para validaciones generales de formato del repositorio.
+- [ceedling](http://www.throwtheswitch.org/ceedling) para ejecutar las pruebas unitarias en forma automatizada.
+- [lcov](http://ltp.sourceforge.net/coverage/lcov.php) para generar los informes de cobertura de las pruebas unitarias.
 
-Después de clonar el repositorio usted debería ejecutar el siguiente comando:
+Después de clonar el repositorio, usted debería ejecutar el siguiente comando:
 
+```sh
 pre-commit install
+```
 
-Para ejecutar las pruebas unitarias se utiliza el siguiente comando:
+Para ejecutar las pruebas unitarias, se utiliza el siguiente comando:
 
+```sh
 ceedling test:all
+```
 
-Para generar el informe de cobertura de las pruebas se utiliza el siguiente comando:
+Para generar el informe de cobertura de las pruebas, se utiliza el siguiente comando:
 
+```sh
 ceedling clobber gcov:all utils:gcov
+```
 
-Para generar la documentación del proyecto se utiliza el siguiente comando:
+Para generar la documentación del proyecto, se utiliza el siguiente comando:
 
+```sh
 make doc
+```
 
-Para compilar el proyecto se utiliza el siguiente comando:
+Para compilar el proyecto, se utiliza el siguiente comando:
 
+```sh
 make all
-
+```
 
 
 
