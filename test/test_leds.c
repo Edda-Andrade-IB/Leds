@@ -36,6 +36,7 @@
 static uint16_t leds_virtuales;
 #define ERROR_CODE -1
 #define SUCCESS_CODE 1
+
 /**
  * @brief Set up function for the test case.
  *
@@ -172,25 +173,86 @@ void test_apagar_multiples_leds(void)
     TEST_ASSERT_EQUAL_HEX16(0x00, leds_virtuales);
 }
 
+/**
+ * @brief Test function to verify the boundary values for turning on LEDs.
+ *
+ * This function tests the behavior of the `leds_turn_on` function by turning on
+ * two LEDs at the boundary values. It asserts that the virtual LEDs variable
+ * (`leds_virtuales`) matches the expected value after turning on the LEDs.
+ *
+ * @note The boundary values tested are LED1 (16) and LED2 (1).
+ */
+void test_verificar_valores_limites(void)
+{
+    static const int LED1 = 16;
+    static const int LED2 = 1;
+    leds_turn_on(LED1);
+    leds_turn_on(LED2);
+    TEST_ASSERT_EQUAL_HEX16(0x8001, leds_virtuales);
+}
+
+/**
+ * @brief Test function to verify the behavior of turning on LEDs that are out of valid range.
+ *
+ * This function tests the `leds_turn_on` function with LED indices that are outside the valid range.
+ * It checks if the function correctly returns an error code when attempting to turn on LEDs with
+ * indices that are either too high, negative, or zero.
+ *
+ * Test cases:
+ * - LED index 17 (out of upper bound)
+ * - LED index -4 (negative index)
+ * - LED index 0 (invalid index)
+ *
+ * Expected behavior:
+ * - The `leds_turn_on` function should return `ERROR_CODE` for each of the invalid LED indices.
+ */
 void test_encender_leds_fuera_de_limites(void)
 {
-    static const int LED1 = 17, LED2=-4, LED3=0;
+    static const int LED1 = 17, LED2 = -4, LED3 = 0;
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_on(LED1));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_on(LED2));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_on(LED3));
 }
 
+/**
+ * @brief Test function to verify that attempting to turn off LEDs outside the valid range returns an error.
+ *
+ * This function tests the `leds_turn_off` function with LED indices that are outside the valid range.
+ * It uses the following invalid LED indices:
+ * - LED1: 33 (above the valid range)
+ * - LED2: -12 (below the valid range)
+ * - LED3: 0 (assuming 0 is outside the valid range)
+ *
+ * The function asserts that the `leds_turn_off` function returns `ERROR_CODE` for each of these invalid indices.
+ */
 void test_apagar_leds_fuera_de_limites(void)
 {
-    static const int LED1 = 33, LED2=-12, LED3=0;
+    static const int LED1 = 33, LED2 = -12, LED3 = 0;
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_off(LED1));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_off(LED2));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_off(LED3));
 }
 
+/**
+ * @brief Test function to verify the state of LEDs that are out of valid range.
+ *
+ * This function tests the `leds_state` function with LED indices that are outside
+ * the valid range. It checks if the function correctly returns an error code for
+ * these invalid indices.
+ *
+ * @details
+ * The test cases include:
+ * - LED index 33, which is above the valid range.
+ * - LED index -12, which is below the valid range.
+ * - LED index 0, which is typically considered out of range if the valid indices start from 1.
+ *
+ * The expected behavior is that the `leds_state` function returns `ERROR_CODE` for each of these
+ * invalid indices.
+ */
 void test_verificar_estado_de_led_fuera_de_limites(void)
 {
-    static const int LED1 = 33, LED2=-12, LED3=0;;
+    static const int LED1 = 33, LED2 = -12, LED3 = 0;
+    ;
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED1));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED2));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED3));

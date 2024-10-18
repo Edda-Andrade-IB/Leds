@@ -24,7 +24,7 @@ void test_todos_los_leds_inician_apagados(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(54), UNITY_DISPLAY_STYLE_UINT16);
+   ), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_UINT16);
 
 }
 
@@ -40,7 +40,7 @@ void test_encender_un_led(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(68), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -58,13 +58,13 @@ void test_apagar_un_led_previamente_encendido(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(83));
+   ), (UNITY_UINT)(84));
 
     UnityAssertBits((UNITY_INT)((~(1 << (LED - 1)))), (UNITY_INT)((UNITY_UINT)(0)), (UNITY_INT)((leds_virtuales)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(84));
+   ), (UNITY_UINT)(85));
 
 }
 
@@ -94,7 +94,7 @@ void test_verificar_estado_de_led_encendido(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(97), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(98), UNITY_DISPLAY_STYLE_INT);
 
 }
 
@@ -108,7 +108,7 @@ void test_encender_todos_los_leds_apagados(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(111), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(112), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -122,7 +122,7 @@ void test_apagar_todos_los_leds_encendidos(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(124), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(125), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -148,7 +148,7 @@ void test_encender_multiples_leds(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(146), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(147), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -174,7 +174,7 @@ void test_apagar_multiples_leds(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(168), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(169), UNITY_DISPLAY_STYLE_HEX16);
 
     leds_turn_off(LED1);
 
@@ -186,90 +186,106 @@ void test_apagar_multiples_leds(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(172), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(173), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
+void test_verificar_valores_limites(void)
 
+{
+
+    static const int LED1 = 16;
+
+    static const int LED2 = 1;
+
+    leds_turn_on(LED1);
+
+    leds_turn_on(LED2);
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x8001)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(191), UNITY_DISPLAY_STYLE_HEX16);
+
+}
 
 void test_encender_leds_fuera_de_limites(void)
 
 {
 
-    static const int LED1 = 17, LED2=-4, LED3=0;
+    static const int LED1 = 17, LED2 = -4, LED3 = 0;
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_turn_on(LED1))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(178), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(212), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_turn_on(LED2))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(179), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(213), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_turn_on(LED3))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(180), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(214), UNITY_DISPLAY_STYLE_INT);
 
 }
-
-
 
 void test_apagar_leds_fuera_de_limites(void)
 
 {
 
-    static const int LED1 = 33, LED2=-12, LED3=0;
+    static const int LED1 = 33, LED2 = -12, LED3 = 0;
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_turn_off(LED1))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(186), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(231), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_turn_off(LED2))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(187), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(232), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_turn_off(LED3))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(188), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(233), UNITY_DISPLAY_STYLE_INT);
 
 }
-
-
 
 void test_verificar_estado_de_led_fuera_de_limites(void)
 
 {
 
-    static const int LED1 = 33, LED2=-12, LED3=0;;
+    static const int LED1 = 33, LED2 = -12, LED3 = 0;
+
+    ;
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_state(LED1))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(194), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(256), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_state(LED2))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(195), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(257), UNITY_DISPLAY_STYLE_INT);
 
     UnityAssertEqualNumber((UNITY_INT)((-1)), (UNITY_INT)((leds_state(LED3))), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(196), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(258), UNITY_DISPLAY_STYLE_INT);
 
 }

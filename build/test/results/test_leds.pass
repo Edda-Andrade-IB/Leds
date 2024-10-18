@@ -4,55 +4,59 @@
   :file: test_leds.c
 :successes:
 - :test: test_todos_los_leds_inician_apagados
-  :line: 50
+  :line: 51
   :message: ''
   :unity_test_time: 0
 - :test: test_encender_un_led
-  :line: 64
+  :line: 65
   :message: ''
   :unity_test_time: 0
 - :test: test_apagar_un_led_previamente_encendido
-  :line: 78
+  :line: 79
   :message: ''
   :unity_test_time: 0
 - :test: test_verificar_estado_de_led_encendido
-  :line: 93
+  :line: 94
   :message: ''
   :unity_test_time: 0
 - :test: test_encender_todos_los_leds_apagados
-  :line: 108
+  :line: 109
   :message: ''
   :unity_test_time: 0
 - :test: test_apagar_todos_los_leds_encendidos
-  :line: 121
+  :line: 122
   :message: ''
   :unity_test_time: 0
 - :test: test_encender_multiples_leds
-  :line: 137
+  :line: 138
   :message: ''
   :unity_test_time: 0
 - :test: test_apagar_multiples_leds
-  :line: 159
+  :line: 160
+  :message: ''
+  :unity_test_time: 0
+- :test: test_verificar_valores_limites
+  :line: 185
   :message: ''
   :unity_test_time: 0
 - :test: test_encender_leds_fuera_de_limites
-  :line: 175
+  :line: 209
   :message: ''
   :unity_test_time: 0
 - :test: test_apagar_leds_fuera_de_limites
-  :line: 183
+  :line: 228
   :message: ''
   :unity_test_time: 0
 - :test: test_verificar_estado_de_led_fuera_de_limites
-  :line: 191
+  :line: 252
   :message: ''
   :unity_test_time: 0
 :failures: []
 :ignores: []
 :counts:
-  :total: 11
-  :passed: 11
+  :total: 12
+  :passed: 12
   :failed: 0
   :ignored: 0
 :stdout: []
-:time: 0.0006464040006903815
+:time: 0.0006610979999095434
