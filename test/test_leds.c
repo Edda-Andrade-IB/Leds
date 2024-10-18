@@ -1,5 +1,5 @@
-#include "leds.h"
-#include "unity.h"
+#include "/home/edda/Documentos/CESE/TSSE/Leds/src/leds.h"
+#include "/home/edda/Documentos/CESE/TSSE/Leds/lib/Unity/src/unity.h"
 
 /**
  * @file test_leds.c
@@ -256,4 +256,27 @@ void test_verificar_estado_de_led_fuera_de_limites(void)
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED1));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED2));
     TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED3));
+}
+
+int main(void)
+{
+    UNITY_BEGIN();
+    RUN_TEST(test_todos_los_leds_inician_apagados);
+    RUN_TEST(test_encender_un_led);
+    RUN_TEST(test_apagar_un_led_previamente_encendido);
+    RUN_TEST(test_verificar_estado_de_led_encendido);
+    RUN_TEST(test_encender_todos_los_leds_apagados);
+    RUN_TEST(test_apagar_todos_los_leds_encendidos);
+    RUN_TEST(test_encender_multiples_leds);
+    RUN_TEST(test_apagar_multiples_leds);
+    RUN_TEST(test_verificar_estado_de_led_encendido);
+    RUN_TEST(test_encender_leds_fuera_de_limites);
+    RUN_TEST(test_apagar_leds_fuera_de_limites);
+    RUN_TEST(test_verificar_estado_de_led_fuera_de_limites);
+    return UNITY_END();
+}
+
+void tearDown(void)
+{
+    // vacia por ahora
 }

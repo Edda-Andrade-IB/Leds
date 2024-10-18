@@ -1,0 +1,3 @@
+/home/edda/Documentos/CESE/TSSE/Leds/build/CMakeFiles/test_leds.dir
+/home/edda/Documentos/CESE/TSSE/Leds/build/CMakeFiles/edit_cache.dir
+/home/edda/Documentos/CESE/TSSE/Leds/build/CMakeFiles/rebuild_cache.dir

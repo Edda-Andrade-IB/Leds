@@ -1,0 +1,1 @@
+/usr/bin/gcc  -fprofile-arcs -ftest-coverage -fbranch-probabilities -g  -lgcov --coverage CMakeFiles/test_leds.dir/src/leds.c.o CMakeFiles/test_leds.dir/test/test_leds.c.o CMakeFiles/test_leds.dir/lib/Unity/src/unity.c.o -o test_leds

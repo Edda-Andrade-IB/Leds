@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/edda/Documentos/CESE/TSSE/Leds/build",
+  "command": "/usr/bin/gcc  -I/home/edda/Documentos/CESE/TSSE/Leds/./lib/Unity/src -I/home/edda/Documentos/CESE/TSSE/Leds/./src  -fprofile-arcs -ftest-coverage -fbranch-probabilities -g -o CMakeFiles/test_leds.dir/src/leds.c.o -c /home/edda/Documentos/CESE/TSSE/Leds/src/leds.c",
+  "file": "/home/edda/Documentos/CESE/TSSE/Leds/src/leds.c"
+},
+{
+  "directory": "/home/edda/Documentos/CESE/TSSE/Leds/build",
+  "command": "/usr/bin/gcc  -I/home/edda/Documentos/CESE/TSSE/Leds/./lib/Unity/src -I/home/edda/Documentos/CESE/TSSE/Leds/./src  -fprofile-arcs -ftest-coverage -fbranch-probabilities -g -o CMakeFiles/test_leds.dir/test/test_leds.c.o -c /home/edda/Documentos/CESE/TSSE/Leds/test/test_leds.c",
+  "file": "/home/edda/Documentos/CESE/TSSE/Leds/test/test_leds.c"
+},
+{
+  "directory": "/home/edda/Documentos/CESE/TSSE/Leds/build",
+  "command": "/usr/bin/gcc  -I/home/edda/Documentos/CESE/TSSE/Leds/./lib/Unity/src -I/home/edda/Documentos/CESE/TSSE/Leds/./src  -fprofile-arcs -ftest-coverage -fbranch-probabilities -g -o CMakeFiles/test_leds.dir/lib/Unity/src/unity.c.o -c /home/edda/Documentos/CESE/TSSE/Leds/lib/Unity/src/unity.c",
+  "file": "/home/edda/Documentos/CESE/TSSE/Leds/lib/Unity/src/unity.c"
+}
+]

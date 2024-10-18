@@ -57,13 +57,11 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/edda/Documentos/CESE/TSSE
+CMAKE_SOURCE_DIR = /home/edda/Documentos/CESE/TSSE/Leds
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/edda/Documentos/CESE/TSSE/Leds
+CMAKE_BINARY_DIR = /home/edda/Documentos/CESE/TSSE/Leds/build
 
-# Config sources directory
-SRCS = test/test_leds.c src/leds.c src/leds.h lib/Unity/src/unity.c
 #=============================================================================
 # Targets provided globally by CMake.
 
@@ -89,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/edda/Documentos/CESE/TSSE/Leds/CMakeFiles /home/edda/Documentos/CESE/TSSE/Leds//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/edda/Documentos/CESE/TSSE/Leds/build/CMakeFiles /home/edda/Documentos/CESE/TSSE/Leds/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/edda/Documentos/CESE/TSSE/Leds/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/edda/Documentos/CESE/TSSE/Leds/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

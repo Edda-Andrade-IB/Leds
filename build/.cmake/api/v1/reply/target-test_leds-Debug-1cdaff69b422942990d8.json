@@ -1,0 +1,125 @@
+{
+	"artifacts" :
+	[
+		{
+			"path" : "test_leds"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" :
+	{
+		"commands" :
+		[
+			"add_executable",
+			"target_include_directories"
+		],
+		"files" :
+		[
+			"CMakeLists.txt"
+		],
+		"nodes" :
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 14,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 17,
+				"parent" : 0
+			}
+		]
+	},
+	"compileGroups" :
+	[
+		{
+			"compileCommandFragments" :
+			[
+				{
+					"fragment" : " -fprofile-arcs -ftest-coverage -fbranch-probabilities -g"
+				}
+			],
+			"includes" :
+			[
+				{
+					"backtrace" : 2,
+					"path" : "/home/edda/Documentos/CESE/TSSE/Leds/./lib/Unity/src"
+				},
+				{
+					"backtrace" : 2,
+					"path" : "/home/edda/Documentos/CESE/TSSE/Leds/./src"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" :
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"id" : "test_leds::@6890427a1f51a3e7e1df",
+	"link" :
+	{
+		"commandFragments" :
+		[
+			{
+				"fragment" : "-fprofile-arcs -ftest-coverage -fbranch-probabilities -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-lgcov --coverage",
+				"role" : "flags"
+			}
+		],
+		"language" : "C"
+	},
+	"name" : "test_leds",
+	"nameOnDisk" : "test_leds",
+	"paths" :
+	{
+		"build" : ".",
+		"source" : "."
+	},
+	"sourceGroups" :
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" :
+			[
+				0,
+				1,
+				2
+			]
+		}
+	],
+	"sources" :
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "src/leds.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "test/test_leds.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/Unity/src/unity.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

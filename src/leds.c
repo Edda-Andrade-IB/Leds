@@ -8,6 +8,23 @@ static uint16_t *leds_puerto;
 #define SUCCESS_CODE 1
 
 /**
+ * @brief Checks if the given LED index is within the valid range.
+ *
+ * This function verifies whether the provided LED index is between 1 and 16, inclusive.
+ * If the index is outside this range, an error code is returned. Otherwise, a success code is returned.
+ *
+ * @param led The index of the LED to check.
+ * @return int Returns ERROR_CODE if the index is invalid, otherwise returns SUCCESS_CODE.
+ */
+int check_led_index(int led)
+{
+    if (led < 1 || led > 16)
+    {
+        return ERROR_CODE;
+    }
+    return SUCCESS_CODE;
+}
+/**
  * @brief Computes the bitmask for a given LED index.
  *
  * This function takes an LED index and returns the corresponding bitmask
@@ -68,7 +85,7 @@ int leds_turn_off(int led)
 {
     if (check_led_index(led) == ERROR_CODE)
     {
-        return;
+        return ERROR_CODE;
     }
     else
 
@@ -113,22 +130,4 @@ void leds_turn_all_on(void)
 void leds_turn_all_off(void)
 {
     *leds_puerto = 0;
-}
-
-/**
- * @brief Checks if the given LED index is within the valid range.
- *
- * This function verifies whether the provided LED index is between 1 and 16, inclusive.
- * If the index is outside this range, an error code is returned. Otherwise, a success code is returned.
- *
- * @param led The index of the LED to check.
- * @return int Returns ERROR_CODE if the index is invalid, otherwise returns SUCCESS_CODE.
- */
-int check_led_index(int led)
-{
-    if (led < 1 || led > 16)
-    {
-        return ERROR_CODE;
-    }
-    return SUCCESS_CODE;
 }
