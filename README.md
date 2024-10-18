@@ -1,4 +1,4 @@
-Este proyecto tiene por intención demostrar el desarrollo de un driver de 16 leds representados como un int16 basado en tests.
+Este proyecto tiene por intención demostrar el desarrollo de un driver de 16 leds representados como un int16 basado en tests, utilizando el framework Ceedling. 
 
 El driver debe cumplir con los siguientes requerimientos:
 • Con la inicialización todos los LEDs quedan apagados.
@@ -11,3 +11,6 @@ El driver debe cumplir con los siguientes requerimientos:
 • Consultar el estado de un LED que est apagado
 • Revisar limites de los parametros.
 • Revisar parámetros fuera de los limites.
+
+
+p/d: despues de esta experiencia la superioridad de Linux para el uso de software libre quedo ampliamente demostrada
