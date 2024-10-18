@@ -14,7 +14,7 @@ El driver debe cumplir con los siguientes requerimientos:
     <li>Revisar parámetros fuera de los límites.</li>
 </ul>
 
-rabajo Práctico Número 4
+
 Uso del repositorio
 
 Este repositorio utiliza las siguientes herramientas:
