@@ -38,7 +38,7 @@ void test_todos_los_leds_inician_apagados(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(55), UNITY_DISPLAY_STYLE_UINT16);
+   ), (UNITY_UINT)(53), UNITY_DISPLAY_STYLE_UINT16);
 
 }
 
@@ -54,7 +54,7 @@ void test_encender_un_led(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(69), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(67), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -72,13 +72,13 @@ void test_apagar_un_led_previamente_encendido(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(84));
+   ), (UNITY_UINT)(82));
 
     UnityAssertBits((UNITY_INT)((~(1 << (LED - 1)))), (UNITY_INT)((UNITY_UINT)(0)), (UNITY_INT)((leds_virtuales)), (
 
    ((void *)0)
 
-   ), (UNITY_UINT)(85));
+   ), (UNITY_UINT)(83));
 
 }
 
@@ -108,13 +108,9 @@ void test_verificar_estado_de_led_encendido(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(98), UNITY_DISPLAY_STYLE_INT);
+   ), (UNITY_UINT)(96), UNITY_DISPLAY_STYLE_INT);
 
 }
-
-
-
-
 
 void test_encender_todos_los_leds_apagados(void)
 
@@ -126,13 +122,9 @@ void test_encender_todos_los_leds_apagados(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(105), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(110), UNITY_DISPLAY_STYLE_HEX16);
 
 }
-
-
-
-
 
 void test_apagar_todos_los_leds_encendidos(void)
 
@@ -144,11 +136,11 @@ void test_apagar_todos_los_leds_encendidos(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(112), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(123), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
- void test_encender_multiples_leds(void)
+void test_encender_multiples_leds(void)
 
 {
 
@@ -170,7 +162,7 @@ void test_apagar_todos_los_leds_encendidos(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(135), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(145), UNITY_DISPLAY_STYLE_HEX16);
 
 }
 
@@ -184,11 +176,19 @@ void test_apagar_multiples_leds(void)
 
     static const int LED12 = 12;
 
+    leds_turn_all_off();
+
     leds_turn_on(LED1);
 
     leds_turn_on(LED5);
 
     leds_turn_on(LED12);
+
+    UnityAssertEqualNumber((UNITY_INT)(UNITY_INT16)((0x0811)), (UNITY_INT)(UNITY_INT16)((leds_virtuales)), (
+
+   ((void *)0)
+
+   ), (UNITY_UINT)(167), UNITY_DISPLAY_STYLE_HEX16);
 
     leds_turn_off(LED1);
 
@@ -200,6 +200,6 @@ void test_apagar_multiples_leds(void)
 
    ((void *)0)
 
-   ), (UNITY_UINT)(160), UNITY_DISPLAY_STYLE_HEX16);
+   ), (UNITY_UINT)(171), UNITY_DISPLAY_STYLE_HEX16);
 
 }

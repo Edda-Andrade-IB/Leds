@@ -85,14 +85,14 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_leds.c");
-  run_test(test_todos_los_leds_inician_apagados, "test_todos_los_leds_inician_apagados", 51);
-  run_test(test_encender_un_led, "test_encender_un_led", 65);
-  run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 79);
-  run_test(test_verificar_estado_de_led_encendido, "test_verificar_estado_de_led_encendido", 94);
-  run_test(test_encender_todos_los_leds_apagados, "test_encender_todos_los_leds_apagados", 102);
-  run_test(test_apagar_todos_los_leds_encendidos, "test_apagar_todos_los_leds_encendidos", 109);
-  run_test(test_encender_multiples_leds, "test_encender_multiples_leds", 126);
-  run_test(test_apagar_multiples_leds, "test_apagar_multiples_leds", 149);
+  run_test(test_todos_los_leds_inician_apagados, "test_todos_los_leds_inician_apagados", 49);
+  run_test(test_encender_un_led, "test_encender_un_led", 63);
+  run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 77);
+  run_test(test_verificar_estado_de_led_encendido, "test_verificar_estado_de_led_encendido", 92);
+  run_test(test_encender_todos_los_leds_apagados, "test_encender_todos_los_leds_apagados", 107);
+  run_test(test_apagar_todos_los_leds_encendidos, "test_apagar_todos_los_leds_encendidos", 120);
+  run_test(test_encender_multiples_leds, "test_encender_multiples_leds", 136);
+  run_test(test_apagar_multiples_leds, "test_apagar_multiples_leds", 158);
 
   return UnityEnd();
 }
