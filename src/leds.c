@@ -4,6 +4,9 @@
 
 static uint16_t *leds_puerto;
 
+#define ERROR_CODE -1
+#define SUCCESS_CODE 1
+
 /**
  * @brief Computes the bitmask for a given LED index.
  *
@@ -40,9 +43,18 @@ void leds_init(uint16_t *puerto)
  *
  * @param led The index of the LED to turn on.
  */
-void leds_turn_on(int led)
+int leds_turn_on(int led)
 {
-    *leds_puerto |= led_it_bit(led);
+    if (check_led_index(led) == ERROR_CODE)
+    {
+        return ERROR_CODE;
+    }
+    else
+    {
+
+        *leds_puerto |= led_it_bit(led);
+        return SUCCESS_CODE;
+    }
 }
 
 /**
@@ -52,9 +64,15 @@ void leds_turn_on(int led)
  *
  * @param led The identifier of the LED to turn off.
  */
-void leds_turn_off(int led)
+int leds_turn_off(int led)
 {
-    *leds_puerto &= ~led_it_bit(led);
+    if (check_led_index(led) == ERROR_CODE)
+    {
+        return;
+    }
+    else
+
+        *leds_puerto &= ~led_it_bit(led);
 }
 
 /**
@@ -67,7 +85,14 @@ void leds_turn_off(int led)
 int leds_state(int led)
 
 {
-    return (*leds_puerto & led_it_bit(led)) != 0;
+    if (check_led_index(led) == ERROR_CODE)
+    {
+        return ERROR_CODE;
+    }
+    else
+    {
+        return (*leds_puerto & led_it_bit(led)) != 0;
+    }
 }
 
 /**
@@ -88,4 +113,13 @@ void leds_turn_all_on(void)
 void leds_turn_all_off(void)
 {
     *leds_puerto = 0;
+}
+
+int check_led_index(int led)
+{
+    if (led < 1 || led > 16)
+    {
+        return ERROR_CODE;
+    }
+    return SUCCESS_CODE;
 }

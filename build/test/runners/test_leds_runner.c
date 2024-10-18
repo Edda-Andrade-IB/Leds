@@ -18,6 +18,9 @@ extern void test_encender_todos_los_leds_apagados(void);
 extern void test_apagar_todos_los_leds_encendidos(void);
 extern void test_encender_multiples_leds(void);
 extern void test_apagar_multiples_leds(void);
+extern void test_encender_leds_fuera_de_limites(void);
+extern void test_apagar_leds_fuera_de_limites(void);
+extern void test_verificar_estado_de_led_fuera_de_limites(void);
 
 
 /*=======Mock Management=====*/
@@ -85,14 +88,17 @@ static void run_test(UnityTestFunction func, const char* name, UNITY_LINE_TYPE l
 int main(void)
 {
   UnityBegin("test_leds.c");
-  run_test(test_todos_los_leds_inician_apagados, "test_todos_los_leds_inician_apagados", 49);
-  run_test(test_encender_un_led, "test_encender_un_led", 63);
-  run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 77);
-  run_test(test_verificar_estado_de_led_encendido, "test_verificar_estado_de_led_encendido", 92);
-  run_test(test_encender_todos_los_leds_apagados, "test_encender_todos_los_leds_apagados", 107);
-  run_test(test_apagar_todos_los_leds_encendidos, "test_apagar_todos_los_leds_encendidos", 120);
-  run_test(test_encender_multiples_leds, "test_encender_multiples_leds", 136);
-  run_test(test_apagar_multiples_leds, "test_apagar_multiples_leds", 158);
+  run_test(test_todos_los_leds_inician_apagados, "test_todos_los_leds_inician_apagados", 50);
+  run_test(test_encender_un_led, "test_encender_un_led", 64);
+  run_test(test_apagar_un_led_previamente_encendido, "test_apagar_un_led_previamente_encendido", 78);
+  run_test(test_verificar_estado_de_led_encendido, "test_verificar_estado_de_led_encendido", 93);
+  run_test(test_encender_todos_los_leds_apagados, "test_encender_todos_los_leds_apagados", 108);
+  run_test(test_apagar_todos_los_leds_encendidos, "test_apagar_todos_los_leds_encendidos", 121);
+  run_test(test_encender_multiples_leds, "test_encender_multiples_leds", 137);
+  run_test(test_apagar_multiples_leds, "test_apagar_multiples_leds", 159);
+  run_test(test_encender_leds_fuera_de_limites, "test_encender_leds_fuera_de_limites", 175);
+  run_test(test_apagar_leds_fuera_de_limites, "test_apagar_leds_fuera_de_limites", 183);
+  run_test(test_verificar_estado_de_led_fuera_de_limites, "test_verificar_estado_de_led_fuera_de_limites", 191);
 
   return UnityEnd();
 }

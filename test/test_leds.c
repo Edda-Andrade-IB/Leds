@@ -34,7 +34,8 @@
  * 10. Turn off multiple LEDs: Verify that multiple LEDs can be turned off simultaneously. (Requirement 4)
  */
 static uint16_t leds_virtuales;
-
+#define ERROR_CODE -1
+#define SUCCESS_CODE 1
 /**
  * @brief Set up function for the test case.
  *
@@ -169,4 +170,28 @@ void test_apagar_multiples_leds(void)
     leds_turn_off(LED5);
     leds_turn_off(LED12);
     TEST_ASSERT_EQUAL_HEX16(0x00, leds_virtuales);
+}
+
+void test_encender_leds_fuera_de_limites(void)
+{
+    static const int LED1 = 17, LED2=-4, LED3=0;
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_on(LED1));
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_on(LED2));
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_on(LED3));
+}
+
+void test_apagar_leds_fuera_de_limites(void)
+{
+    static const int LED1 = 33, LED2=-12, LED3=0;
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_off(LED1));
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_off(LED2));
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_turn_off(LED3));
+}
+
+void test_verificar_estado_de_led_fuera_de_limites(void)
+{
+    static const int LED1 = 33, LED2=-12, LED3=0;;
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED1));
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED2));
+    TEST_ASSERT_EQUAL(ERROR_CODE, leds_state(LED3));
 }
